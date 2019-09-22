@@ -17,13 +17,25 @@ class MyGame(arcade.Window):
         os.chdir(file_path)
         arcade.set_background_color(open_color.white)
 
+        self.animal_list = arcade.SpriteList()
 
     def setup(self):
+        animals = ['pot','hat','herbal','parchment','bag','potion','runestones','book','magic_book']
+        for i in range(50):
+            animal = random.choice(animals)
+            x = random.randint(50,750)
+            y = random.randint(50,550)
+            self.animal_sprite = arcade.Sprite("assets/{animal}.png".format(animal=animal), 0.6)
+            self.animal_sprite.center_x = x
+            self.animal_sprite.center_y = y
+            self.animal_list.append(self.animal_sprite)
+        
         pass        
 
     def on_draw(self):
         arcade.start_render()
-        pass
+        self.animal_list.draw()
+        
 
 
     def update(self, delta_time):
@@ -31,6 +43,8 @@ class MyGame(arcade.Window):
 
 
     def on_mouse_motion(self, x, y, dx, dy):
+        self.animal_sprite.center_x = x
+        self.animal_sprite.center_y = y
         pass
 
 def main():
