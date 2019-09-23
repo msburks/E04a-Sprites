@@ -20,7 +20,7 @@ class MyGame(arcade.Window):
         self.animal_list = arcade.SpriteList()
 
     def setup(self):
-        animals = ['pot','hat','herbal','parchment','bag','potion','runestones','book','magic_book']
+        animals = ['pot','hat','herbal','parchment','bag','potion','runestones','book','magic_book','samauri']
         for i in range(50):
             animal = random.choice(animals)
             x = random.randint(50,750)
